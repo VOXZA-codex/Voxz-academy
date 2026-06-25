@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belajar Python Lengkap | Voxz Academy</title>
+  <style>
+    body {
+      background-color: #121218;
+      margin: 0;
+      padding: 20px 16px;
+      font-family: Arial, sans-serif;
+      color: #E2E8F0;
+      line-height: 1.7;
+    }
+
+    .kembali {
+      display: block;
+      max-width: 450px;
+      margin: 0 auto 20px auto;
+      color: #60A5FA;
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    .wadah {
+      max-width: 450px;
+      margin: 0 auto;
+      background: #1A1E27;
+      border: 1px solid #2A2F3A;
+      border-radius: 12px;
+      padding: 24px 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #2A2F3A;
+      color: #38BDF8;
+    }
+
+    h2 {
+      font-size: 19px;
+      color: #7DD3FC;
+      margin: 30px 0 14px 0;
+      padding-left: 10px;
+      border-left: 3px solid #38BDF8;
+    }
+
+    h3 {
+      font-size: 16px;
+      color: #BAE6FD;
+      margin: 20px 0 10px 0;
+    }
+
+    p {
+      font-size: 15px;
+      color: #CBD5E1;
+      margin: 10px 0;
+      text-align: justify;
+    }
+
+    .kode {
+      background: #12161C;
+      border: 1px solid #3C424E;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 14px 0;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      color: #94E2D5;
+      overflow-x: auto;
+      line-height: 1.6;
+    }
+
+    .catatan {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 8px;
+      padding: 14px;
+      margin: 18px 0;
+      font-size: 14px;
+      color: #BAE6FD;
+    }
+
+    .peringatan {
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      border-radius: 8px;
+      padding: 14px;
+      margin: 18px 0;
+      font-size: 14px;
+      color: #FCD34D;
+    }
+
+    .langkah {
+      margin: 16px 0;
+      padding-left: 14px;
+      border-left: 2px solid rgba(56, 189, 248, 0.5);
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 10px 0;
+    }
+
+    li {
+      margin: 8px 0;
+      color: #CBD5E1;
+      font-size: 15px;
+    }
+
+    a {
+      color: #60A5FA;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<a href="index.html" class="kembali">← Kembali ke Menu Utama</a>
+
+<div class="wadah">
+  <h1>🐍 Belajar Python Lengkap</h1>
+
+  <h2>📌 Apa Itu Python?</h2>
+  <p>Python adalah bahasa pemrograman tingkat tinggi yang bersifat umum, interpretatif, dan memiliki sintaks yang sangat mudah dibaca oleh manusia. Bahasa ini pertama kali dikembangkan oleh <strong>Guido van Rossum</strong> dan dirilis secara resmi pada tahun 1991. Nama "Python" diambil dari acara komedi favorit pembuatnya, yaitu <em>Monty Python's Flying Circus</em>.</p>
+  
+  <p>Berbeda dengan bahasa pemrograman lain yang sering menggunakan banyak tanda kurung atau tanda baca, Python mengandalkan penulisan yang rapi dan penggunaan indentasi (spasi di awal baris) untuk memisahkan blok kode. Hal ini membuat kode Python terlihat lebih bersih dan mudah dipahami, bahkan untuk pemula sekalipun.</p>
+
+  <h2>🚀 Kegunaan Python di Dunia Nyata</h2>
+  <p>Python bukan hanya bahasa untuk belajar, tapi juga digunakan secara luas di industri teknologi. Berikut adalah bidang-bidang utama yang memanfaatkan Python:</p>
+  <ul>
+    <li><strong>Pengembangan Web:</strong> Membuat situs dan aplikasi menggunakan kerangka kerja seperti Django dan Flask.</li>
+    <li><strong>Analisis Data & Ilmu Data:</strong> Mengolah, menganalisis, dan memvisualisasikan data besar dengan bantuan pustaka Pandas, NumPy, dan Matplotlib.</li>
+    <li><strong>Kecerdasan Buatan & Pembelajaran Mesin:</strong> Menjadi bahasa utama untuk membuat model AI menggunakan TensorFlow, PyTorch, dan Scikit-learn.</li>
+    <li><strong>Otomatisasi & Skrip:</strong> Membuat program untuk mengotomatiskan pekerjaan berulang seperti memindahkan berkas, mengunduh data, atau mengirim pesan secara otomatis.</li>
+    <li><strong>Pembuatan Bot:</strong> Membuat bot WhatsApp, Telegram, Discord, hingga bot untuk mengelola server atau media sosial.</li>
+    <li><strong>Pengembangan Aplikasi & Game:</strong> Membuat aplikasi desktop dan permainan sederhana menggunakan pustaka seperti Tkinter dan Pygame.</li>
+  </ul>
+
+  <h2>✅ Kelebihan & Kekurangan Python</h2>
+  <h3>Kelebihan:</h3>
+  <ul>
+    <li>Sintaks sederhana dan mirip bahasa Indonesia/Inggris sehari-hari.</li>
+    <li>Bisa berjalan di semua sistem operasi: Windows, Linux, macOS, bahkan Android melalui Termux.</li>
+    <li>Gratis sepenuhnya dan bersifat sumber terbuka (bisa dikembangkan siapa saja).</li>
+    <li>Memiliki komunitas pengguna yang sangat besar, sehingga mudah mencari solusi jika ada masalah.</li>
+    <li>Tersedia ribuan pustaka siap pakai untuk mempercepat pembuatan program.</li>
+  </ul>
+
+  <h3>Kekurangan:</h3>
+  <ul>
+    <li>Kecepatan eksekusi kode lebih lambat dibandingkan bahasa seperti C++ atau Java karena sifatnya yang dijalankan secara langsung tanpa dikompilasi penuh.</li>
+    <li>Kurang cocok untuk pengembangan aplikasi yang membutuhkan kinerja sangat tinggi atau sistem level rendah.</li>
+  </ul>
+
+  <h2>📥 Cara Memasang Python</h2>
+
+  <h3>🔹 Di Komputer / Laptop (Windows, Linux, macOS)</h3>
+  <div class="langkah">
+    <p><strong>Langkah 1:</strong> Buka situs resmi Python di alamat berikut:<br>
+    <a href="https://www.python.org/downloads/" target="_blank">https://www.python.org/downloads/</a></p>
+    
+    <p><strong>Langkah 2:</strong> Situs akan mendeteksi sistem operasi yang kamu gunakan secara otomatis. Klik tombol unduh untuk versi terbaru.</p>
+    
+    <p><strong>Langkah 3:</strong> Setelah berkas terunduh, buka untuk memulai instalasi. <strong>PENTING:</strong> Centang kotak bertuliskan <strong>"Add Python to PATH"</strong> sebelum menekan tombol Install Now. Jika tidak dicentang, Python tidak akan dikenali di perintah baris.</p>
+    
+    <p><strong>Langkah 4:</strong> Tunggu proses instalasi selesai. Setelah selesai, buka CMD atau Terminal, lalu ketik perintah berikut untuk memastikan terpasang:</p>
+    <div class="kode">python --version</div>
+    <p>Jika muncul tulisan seperti <code>Python 3.12.x</code>, berarti instalasi berhasil.</p>
+  </div>
+
+  <h3>🔹 Di HP Android (Menggunakan Termux)</h3>
+  <p>Jika kamu hanya memiliki HP, kamu tetap bisa belajar dan membuat program Python menggunakan aplikasi Termux. Caranya sangat mudah:</p>
+  <div class="langkah">
+    <p><strong>Langkah 1:</strong> Buka Termux, lalu perbarui daftar paket terlebih dahulu:</p>
+    <div class="kode">pkg update && pkg upgrade -y</div>
+
+    <p><strong>Langkah 2:</strong> Pasang Python dengan perintah:</p>
+    <div class="kode">pkg install python -y</div>
+
+    <p><strong>Langkah 3:</strong> Cek apakah sudah terpasang dengan benar:</p>
+    <div class="kode">python --version<br>python3 --version</div>
+  </div>
+
+  <h2>📝 Cara Membuat & Menjalankan Program Python</h2>
+  <p>Program Python disimpan dalam berkas teks biasa dengan akhiran nama <strong>.py</strong>. Berikut langkah lengkapnya:</p>
+
+  <h3>1. Membuat Berkas Program</h3>
+  <p>Kamu bisa menggunakan editor teks apa saja, misal: Notepad, VS Code, Sublime Text, atau editor bawaan Termux seperti Nano.</p>
+  <p>Salin kode dasar berikut ini sebagai percobaan pertama:</p>
+  <div class="kode">
+# Ini adalah komentar, tidak akan dijalankan
+# Komentar digunakan untuk memberi catatan pada kode
+
+print("Halo Dunia! 👋")
+print("Selamat datang di materi Python Voxz Academy")
+print("Kamu baru saja membuat program pertamamu!")
+  </div>
+  <p>Simpan berkas tersebut dengan nama misalnya <code>program_pertama.py</code>. Pastikan akhiran namanya adalah <code>.py</code>, bukan <code>.txt</code>.</p>
+
+  <h3>2. Menjalankan Program</h3>
+  <p>Buka CMD, Terminal, atau Termux, masuk ke folder tempat berkas disimpan, lalu ketik perintah:</p>
+  <div class="kode">python program_pertama.py</div>
+  <p>Atau jika menggunakan versi 3:</p>
+  <div class="kode">python3 program_pertama.py</div>
+  <p>Hasilnya akan muncul tulisan yang kamu tulis di dalam kode tersebut.</p>
+
+  <div class="peringatan">
+    ⚠️ <strong>Aturan Penting:</strong> Python sangat peka terhadap <strong>indentasi atau spasi di awal baris kode</strong>. Jangan menambah atau mengurangi spasi sembarangan, karena akan menyebabkan kesalahan saat program dijalankan.
+  </div>
+
+  <h2>📚 Konsep Dasar & Contoh Kode Lengkap</h2>
+
+  <h3>🔹 Variabel & Tipe Data</h3>
+  <p>Variabel adalah tempat menyimpan nilai atau data. Python memiliki beberapa tipe data dasar seperti angka, teks, logika, dan daftar.</p>
+  <div class="kode">
+# Tipe data teks (string)
+nama = "Voxza"
+print("Nama saya:", nama)
+
+# Tipe data angka bulat & desimal
+umur = 22
+tinggi = 172.5
+print("Umur:", umur, "Tahun")
+print("Tinggi:", tinggi, "cm")
+
+# Tipe data logika
+aktif = True
+print("Status aktif:", aktif)
+  </div>
+
+  <h3>🔹 Input dari Pengguna</h3>
+  <p>Membuat program yang bisa menerima masukan dari pengguna:</p>
+  <div class="kode">
+nama = input("Masukkan nama kamu: ")
+umur = input("Masukkan umur kamu: ")
+
+print(f"Halo {nama}! Tahun depan umurmu akan menjadi {int(umur)+1} tahun.")
+  </div>
+
+  <h3>🔹 Percabangan (Kondisi)</h3>
+  <p>Digunakan untuk membuat keputusan dalam program:</p>
+  <div class="kode">
+nilai = int(input("Masukkan nilai ujian: "))
+
+if nilai >= 80:
+    print("Kamu dapat nilai A, Sangat Bagus!")
+elif nilai >= 70:
+    print("Kamu dapat nilai B, Bagus!")
+elif nilai >= 60:
+    print("Kamu dapat nilai C, Cukup!")
+else:
+    print("Kamu dapat nilai D, Silakan belajar lagi.")
+  </div>
+
+  <h3>🔹 Perulangan</h3>
+  <p>Untuk mengulang perintah secara otomatis:</p>
+  <div class="kode">
+# Perulangan dengan for
+print("Hitung dari 1 sampai 5:")
+for angka in range(1, 6):
+    print(angka)
+
+# Perulangan dengan while
+hitung = 1
+while hitung <= 3:
+    print("Pengulangan ke", hitung)
+    hitung = hitung + 1
+  </div>
+
+  <h3>🔹 Fungsi</h3>
+  <p>Mengelompokkan kode agar lebih rapi dan bisa dipakai berulang kali:</p>
+  <div class="kode">
+def sapa(nama):
+    print(f"Halo {nama}! Selamat belajar Python 🚀")
+
+# Memanggil fungsi
+sapa("Andi")
+sapa("Budi")
+sapa("Voxza")
+  </div>
+
+  <h2>💡 Cara Belajar Python yang Efektif</h2>
+  <p>Agar cepat menguasai Python, ikuti langkah-langkah berikut:</p>
+  <ul>
+    <li>Pahami dulu konsep dasar seperti variabel, kondisi, dan perulangan sebelum lanjut ke materi yang lebih sulit.</li>
+    <li>Jangan hanya membaca atau menyalin kode orang lain, cobalah tulis ulang dan ubah sedikit-sedikit untuk melihat hasilnya.</li>
+    <li>Buatlah proyek sederhana secara bertahap, misal: program hitung luas, daftar kontak, hingga bot sederhana.</li>
+    <li>Jika menemukan kesalahan atau error, baca pesan kesalahannya dengan teliti, biasanya sudah tertulis bagian mana yang salah.</li>
+  </ul>
+
+  <div class="catatan">
+    📌 <strong>Catatan Tambahan:</strong> Python adalah bahasa yang sangat luas. Setelah menguasai dasar ini, kamu bisa melanjutkan belajar pustaka khusus sesuai kebutuhan, misalnya untuk membuat bot, mengolah data, atau membuat situs web. Semangat belajarnya!
+  </div>
+
+</div>
+
+</body>
+</html>
