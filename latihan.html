@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latihan Kode || Voxz Academy</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: rgba(18, 18, 24, 1);
+      color: rgba(226, 232, 240, 1);
+      padding: 20px 16px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* Tombol Kembali */
+    .kembali {
+      display: inline-block;
+      margin-bottom: 24px;
+      color: rgba(96, 165, 250, 1);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .kembali:hover {
+      text-decoration: underline;
+    }
+
+    /* Kotak Konten */
+    .card {
+      background: rgba(26, 30, 39, 1);
+      border: 1px solid rgba(42, 47, 58, 1);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      color: rgba(255, 255, 255, 1);
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      color: rgba(147, 197, 253, 1);
+      font-size: 18px;
+      margin: 16px 0 8px;
+    }
+
+    p {
+      color: rgba(176, 184, 196, 1);
+      margin-bottom: 12px;
+    }
+
+    /* Area Tulis Kode */
+    textarea {
+      width: 100%;
+      min-height: 200px;
+      background: rgba(18, 21, 28, 1);
+      border: 1px solid rgba(42, 47, 58, 1);
+      border-radius: 8px;
+      padding: 14px;
+      color: rgba(148, 226, 213, 1);
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      resize: vertical;
+      margin: 10px 0;
+    }
+
+    /* Tombol Aksi */
+    .tombol {
+      background: rgba(147, 197, 253, 1);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tombol:hover {
+      background: rgba(147, 197, 253, 1);
+    }
+
+    .tombol:active {
+      transform: scale(0.98);
+    }
+
+    /* Kotak Hasil */
+    .hasil {
+      background: rgba(24, 27, 35, 1);
+      border: 1px solid rgba(42, 47, 58, 1);
+      border-radius: 8px;
+      padding: 16px;
+      min-height: 80px;
+      margin-top: 12px;
+    }
+
+    /* Blok Kode Contoh */
+    .kode-contoh {
+      background: rgba(18, 21, 28, 1);
+      border: 1px solid rgba(42, 47, 58, 1);
+      border-radius: 8px;
+      padding: 12px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      color: rgba(250, 204, 21, 1);
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Tombol Kembali -->
+  <a href="index.html" class="kembali">← Kembali ke Menu Utama</a>
+
+  <!-- Judul Halaman -->
+  <div class="card">
+    <h1>💻 Latihan Kode</h1>
+    <p>Tempat kamu mencoba menulis kode sendiri dan melihat hasilnya secara langsung.</p>
+  </div>
+
+  <!-- Soal Latihan -->
+  <div class="card">
+    <h2>📝 Latihan 1: Halaman Sederhana</h2>
+    <p>Buatlah halaman yang berisi:</p>
+    <ul style="color: #B0B8C4; padding-left: 20px; margin: 8px 0;">
+      <li>Judul utama bertuliskan <strong>Belajar HTML</strong></li>
+      <li>Satu paragraf bertuliskan <strong>Ini halaman latihan pertamaku</strong></li>
+      <li>Satu tautan mengarah ke <code>index.html</code> dengan tulisan <strong>Kembali ke Menu</strong></li>
+    </ul>
+
+    <p>Contoh kerangka:</p>
+    <div class="kode-contoh">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html lang="id"&gt;<br>
+&lt;head&gt;<br>
+&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>
+&nbsp;&nbsp;&lt;title>Latihan&lt;/title&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+&nbsp;&nbsp;&lt;!-- Tulis kode kamu di sini --&gt;<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;
+    </div>
+  </div>
+
+  <!-- Tempat Tulis Kode -->
+  <div class="card">
+    <h2>⌨️ Tulis Kode Kamu di Bawah Ini</h2>
+    <textarea id="kode" placeholder="Mulai tulis kode HTML di sini...">&lt;!DOCTYPE html&gt;
+&lt;html lang="id"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title>Latihan&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
+
+    <button class="tombol" onclick="tampilkanHasil()">▶ RUN</button>
+
+    <h3 style="margin-top:16px; color:#E2E8F0;">Hasil Tampilan:</h3>
+    <div class="hasil" id="hasil"></div>
+  </div>
+
+</div>
+
+<!-- Skrip untuk menampilkan hasil kode -->
+<script>
+function tampilkanHasil() {
+  const kode = document.getElementById('kode').value;
+  const kotakHasil = document.getElementById('hasil');
+  kotakHasil.innerHTML = kode;
+}
+</script>
+
+</body>
+</html>

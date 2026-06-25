@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuis Tanya Jawab || Voxz Academy</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #121218;
+      color: #E2E8F0;
+      padding: 20px 16px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .kembali {
+      display: inline-block;
+      margin-bottom: 24px;
+      color: #60A5FA;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .kembali:hover {
+      text-decoration: underline;
+    }
+
+    .card {
+      background: #1A1E27;
+      border: 1px solid #2A2F3A;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      color: #FFFFFF;
+      font-size: 22px;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .info {
+      text-align: center;
+      color: #B0B8C4;
+      margin-bottom: 20px;
+    }
+
+    .progres-baris {
+      width: 100%;
+      height: 12px;
+      background: #2A2F3A;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+
+    .progres-isi {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #3B82F6, #60A5FA);
+      transition: all 0.3s ease;
+    }
+
+    .progres-teks {
+      text-align: right;
+      font-weight: 500;
+      color: #93C5FD;
+      margin-bottom: 24px;
+    }
+
+    .soal {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 24px;
+      color: #FFFFFF;
+      line-height: 1.7;
+    }
+
+    .pilihan {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .tombol-pilih {
+      padding: 14px 18px;
+      background: #181B23;
+      border: 1px solid #2A2F3A;
+      border-radius: 8px;
+      text-align: left;
+      color: #E2E8F0;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tombol-pilih:hover:not(:disabled) {
+      background: #222731;
+      border-color: rgba(59, 130, 246, 0.5);
+    }
+
+    .tombol-pilih:disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    .benar {
+      background: rgba(16, 185, 129, 0.25) !important;
+      border-color: #10B981 !important;
+      color: #94E2D5 !important;
+    }
+
+    .salah {
+      background: rgba(239, 68, 68, 0.25) !important;
+      border-color: #EF4444 !important;
+      color: #FCA5A5 !important;
+    }
+
+    .hasil-akhir {
+      text-align: center;
+      padding: 30px;
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 12px;
+      margin-top: 20px;
+      display: none;
+    }
+
+    .nilai {
+      font-size: 32px;
+      font-weight: bold;
+      color: #3B82F6;
+      margin: 12px 0;
+    }
+
+    .tombol-ulang {
+      margin-top: 20px;
+      background: #3B82F6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 28px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .tombol-ulang:hover {
+      background: #2563EB;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <a href="index.html" class="kembali">← Kembali ke Menu Utama</a>
+
+  <div class="card">
+    <h1>❓ KUIS PEMROGRAMAN</h1>
+    <p class="info">15 soal acak dari 100 | Benar semua = 100%</p>
+
+    <div class="progres-baris">
+      <div class="progres-isi" id="progresBar"></div>
+    </div>
+    <div class="progres-teks" id="progresTeks">0%</div>
+  </div>
+
+  <div class="card" id="kotakSoal">
+    <div class="soal" id="teksSoal"></div>
+    <div class="pilihan" id="daftarPilihan"></div>
+  </div>
+
+  <div class="hasil-akhir" id="hasilAkhir">
+    <h2>Selesai! 🎉</h2>
+    <p>Progres Akhir:</p>
+    <div class="nilai" id="nilaiAkhir"></div>
+    <p id="pesanHasil"></p>
+    <button class="tombol-ulang" onclick="mulaiUlang()">Kerjakan Lagi</button>
+  </div>
+</div>
+
+<script>
+// --------------------------
+// DAFTAR 100 SOAL LENGKAP
+// --------------------------
+const daftarSoal = [
+  // HTML
+  { soal: "Kepanjangan HTML adalah?", pilihan: ["HyperText Markup Language", "High Tech Multi Language", "Home Tool Markup Link", "Hyper Transfer Markup Language"], jawaban: 0 },
+  { soal: "Fungsi utama HTML?", pilihan: ["Mengatur tampilan", "Membuat struktur halaman", "Membuat animasi", "Menyimpan data"], jawaban: 1 },
+  { soal: "Tag untuk judul terbesar?", pilihan: ["<h6>", "<h1>", "<p>", "<div>"], jawaban: 1 },
+  { soal: "Tag untuk paragraf?", pilihan: ["<text>", "<p>", "<par>", "<span>"], jawaban: 1 },
+  { soal: "Tag untuk gambar?", pilihan: ["<img>", "<pic>", "<image>", "<src>"], jawaban: 0 },
+  { soal: "Atribut sumber gambar?", pilihan: ["href", "src", "link", "url"], jawaban: 1 },
+  { soal: "Tag untuk tautan/link?", pilihan: ["<a>", "<link>", "<ref>", "<url>"], jawaban: 0 },
+  { soal: "Atribut alamat tujuan link?", pilihan: ["src", "href", "target", "rel"], jawaban: 1 },
+  { soal: "Tag untuk membuat daftar tak bernomor?", pilihan: ["<ol>", "<ul>", "<li>", "<dl>"], jawaban: 1 },
+  { soal: "Tag untuk membuat daftar bernomor?", pilihan: ["<ul>", "<ol>", "<li>", "<dl>"], jawaban: 1 },
+  { soal: "Tag untuk menampilkan teks tebal?", pilihan: ["<b> atau <strong>", "<i>", "<u>", "<em>"], jawaban: 0 },
+  { soal: "Tag untuk teks miring?", pilihan: ["<b>", "<i> atau <em>", "<u>", "<mark>"], jawaban: 1 },
+  { soal: "Tag untuk membuat garis bawah?", pilihan: ["<u>", "<b>", "<i>", "<hr>"], jawaban: 0 },
+  { soal: "Tag untuk membuat baris baru?", pilihan: ["<br>", "<new>", "<lb>", "<hr>"], jawaban: 0 },
+  { soal: "Tag untuk membuat garis pemisah?", pilihan: ["<hr>", "<br>", "<line>", "<div>"], jawaban: 0 },
+  { soal: "Tag untuk wadah/penampung elemen?", pilihan: ["<div>", "<span>", "<section>", "<header>"], jawaban: 0 },
+  { soal: "Atribut untuk memberi nama unik pada elemen?", pilihan: ["class", "id", "name", "type"], jawaban: 1 },
+  { soal: "Atribut untuk mengelompokkan elemen sejenis?", pilihan: ["id", "class", "style", "data"], jawaban: 1 },
+  { soal: "Tag untuk menulis kode CSS di dalam HTML?", pilihan: ["<css>", "<style>", "<script>", "<link>"], jawaban: 1 },
+  { soal: "Tag untuk menulis kode JavaScript di HTML?", pilihan: ["<js>", "<script>", "<code>", "<program>"], jawaban: 1 },
+
+  // CSS
+  { soal: "Kepanjangan CSS?", pilihan: ["Cascading Style Sheets", "Computer Style System", "Creative Style Sheet", "Color Style Selector"], jawaban: 0 },
+  { soal: "Fungsi utama CSS?", pilihan: ["Membuat struktur", "Mengatur tampilan dan desain", "Membuat interaksi", "Menyimpan data"], jawaban: 1 },
+  { soal: "Properti untuk mengatur warna teks?", pilihan: ["text-color", "color", "font-color", "text-style"], jawaban: 1 },
+  { soal: "Properti untuk mengatur warna latar belakang?", pilihan: ["background", "bg-color", "background-color", "color"], jawaban: 2 },
+  { soal: "Properti untuk mengatur ukuran huruf?", pilihan: ["text-size", "font-size", "size", "letter-size"], jawaban: 1 },
+  { soal: "Properti untuk mengatur jenis huruf?", pilihan: ["font-family", "text-font", "font-type", "family"], jawaban: 0 },
+  { soal: "Properti untuk mengatur ketebalan huruf?", pilihan: ["font-weight", "text-bold", "weight", "boldness"], jawaban: 0 },
+  { soal: "Properti untuk mengatur jarak antar huruf?", pilihan: ["letter-spacing", "word-spacing", "line-height", "margin"], jawaban: 0 },
+  { soal: "Properti untuk mengatur jarak antar baris teks?", pilihan: ["line-height", "height", "spacing", "text-height"], jawaban: 0 },
+  { soal: "Properti untuk mengatur jarak luar elemen?", pilihan: ["padding", "margin", "border", "gap"], jawaban: 1 },
+  { soal: "Properti untuk mengatur jarak dalam elemen?", pilihan: ["margin", "padding", "space", "inner"], jawaban: 1 },
+  { soal: "Properti untuk membuat garis tepi elemen?", pilihan: ["line", "border", "outline", "stroke"], jawaban: 1 },
+  { soal: "Cara menengahkan elemen secara horizontal?", pilihan: ["margin: 0 auto", "align: center", "center: true", "padding: auto"], jawaban: 0 },
+  { soal: "Satuan ukuran yang mengikuti ukuran layar?", pilihan: ["px", "cm", "rem / %", "mm"], jawaban: 2 },
+  { soal: "Tanda komentar di CSS?", pilihan: ["//", "/* */", "<!-- -->", "#"], jawaban: 1 },
+  { soal: "Selektor untuk memilih elemen berdasarkan ID?", pilihan: ["#nama", ".nama", "nama", "*"], jawaban: 0 },
+  { soal: "Selektor untuk memilih elemen berdasarkan class?", pilihan: [".nama", "#nama", "nama", "::nama"], jawaban: 0 },
+  { soal: "Properti untuk mengatur posisi elemen?", pilihan: ["position", "place", "float", "align"], jawaban: 0 },
+  { soal: "Nilai posisi agar elemen tetap di tempat meski di-scroll?", pilihan: ["relative", "absolute", "fixed", "static"], jawaban: 2 },
+  { soal: "Properti untuk membuat bayangan pada teks?", pilihan: ["text-shadow", "box-shadow", "shadow", "text-effect"], jawaban: 0 },
+
+  // JavaScript Dasar
+  { soal: "Kepanjangan JS?", pilihan: ["Jual Seblak 🗿", "JavaScript", "Java Script", "Jaringan Sistem"], jawaban: 1 },
+  { soal: "Fungsi utama JavaScript?", pilihan: ["Mengatur struktur", "Mengatur tampilan", "Membuat halaman interaktif", "Menyimpan data permanen"], jawaban: 2 },
+  { soal: "Cara menampilkan teks di konsol?", pilihan: ["print()", "console.log()", "display()", "show()"], jawaban: 1 },
+  { soal: "Tanda komentar satu baris di JS?", pilihan: ["//", "/* */", "#", "<!-- -->"], jawaban: 0 },
+  { soal: "Tanda komentar banyak baris di JS?", pilihan: ["//", "/* */", "<!-- -->", "##"], jawaban: 1 },
+  { soal: "Cara mendeklarasikan variabel?", pilihan: ["var / let / const", "variable", "int", "set"], jawaban: 0 },
+  { soal: "Variabel yang nilainya tidak bisa diubah?", pilihan: ["let", "const", "var", "fix"], jawaban: 1 },
+  { soal: "Tipe data untuk angka?", pilihan: ["String", "Number", "Boolean", "Object"], jawaban: 1 },
+  { soal: "Tipe data untuk teks?", pilihan: ["Text", "String", "Char", "Word"], jawaban: 1 },
+  { soal: "Tipe data untuk nilai benar/salah?", pilihan: ["Boolean", "TrueFalse", "Logic", "Bit"], jawaban: 0 },
+  { soal: "Tanda untuk penjumlahan?", pilihan: ["+", "-", "*", "/"], jawaban: 0 },
+  { soal: "Tanda untuk perkalian?", pilihan: ["x", "*", ".", "**"], jawaban: 1 },
+  { soal: "Tanda untuk pembagian?", pilihan: [":", "/", "\\", "%"], jawaban: 1 },
+  { soal: "Tanda untuk sisa pembagian?", pilihan: ["%", "mod", "rem", "//"], jawaban: 0 },
+  { soal: "Operator perbandingan sama persis?", pilihan: ["==", "===", "=", "!="], jawaban: 1 },
+  { soal: "Operator logika DAN?", pilihan: ["&&", "||", "!", "&"], jawaban: 0 },
+  { soal: "Operator logika ATAU?", pilihan: ["&&", "||", "!", "|"], jawaban: 1 },
+  { soal: "Operator logika BUKAN?", pilihan: ["!", "~", "-", "not"], jawaban: 0 },
+  { soal: "Struktur percabangan jika...maka?", pilihan: ["for", "if...else", "while", "switch"], jawaban: 1 },
+  { soal: "Struktur perulangan dengan jumlah yang jelas?", pilihan: ["while", "do...while", "for", "if"], jawaban: 2 },
+
+  // JavaScript Menengah
+  { soal: "Cara mengubah isi teks elemen HTML?", pilihan: ["textContent", "changeText", "setText", "inner"], jawaban: 0 },
+  { soal: "Cara mengambil elemen berdasarkan ID?", pilihan: ["getElementById()", "querySelector()", "getElementsByClass()", "findId()"], jawaban: 0 },
+  { soal: "Cara mengambil elemen berdasarkan class?", pilihan: ["getElementsByClassName()", "getElementByClass()", "queryId()", "findClass()"], jawaban: 0 },
+  { soal: "Cara menjalankan fungsi saat tombol diklik?", pilihan: ["onclick", "click", "onpress", "tap"], jawaban: 0 },
+  { soal: "Fungsi untuk mengubah teks menjadi angka?", pilihan: ["parseInt() / Number()", "toNumber()", "convert()", "int()"], jawaban: 0 },
+  { soal: "Fungsi untuk mengubah angka menjadi teks?", pilihan: ["toString()", "toText()", "string()", "text()"], jawaban: 0 },
+  { soal: "Cara menggabungkan dua teks?", pilihan: ["+ atau concat()", "join()", "merge()", "combine()"], jawaban: 0 },
+  { soal: "Tipe data untuk menyimpan banyak data sekaligus?", pilihan: ["Array", "Object", "List", "Collection"], jawaban: 0 },
+  { soal: "Indeks pertama dalam array dimulai dari?", pilihan: ["1", "0", "a", "-1"], jawaban: 1 },
+  { soal: "Cara mengambil panjang/jumlah isi array?", pilihan: ["length", "size", "count", "total"], jawaban: 0 },
+  { soal: "Metode untuk menambah data di akhir array?", pilihan: ["push()", "pop()", "shift()", "unshift()"], jawaban: 0 },
+  { soal: "Metode untuk menghapus data di akhir array?", pilihan: ["pop()", "push()", "remove()", "delete()"], jawaban: 0 },
+  { soal: "Struktur data yang menyimpan pasangan kunci dan nilai?", pilihan: ["Object", "Array", "Map", "List"], jawaban: 0 },
+  { soal: "Cara membuat fungsi di JS?", pilihan: ["function nama() {}", "create function", "def nama()", "func nama:"], jawaban: 0 },
+  { soal: "Kata kunci untuk mengembalikan nilai dari fungsi?", pilihan: ["return", "back", "send", "result"], jawaban: 0 },
+  { soal: "Fungsi yang berjalan otomatis setelah jeda waktu?", pilihan: ["setTimeout()", "setInterval()", "delay()", "wait()"], jawaban: 0 },
+  { soal: "Fungsi yang berjalan berulang setiap selang waktu tertentu?", pilihan: ["setInterval()", "setTimeout()", "loop()", "repeat()"], jawaban: 0 },
+  { soal: "Cara menghentikan perulangan setInterval?", pilihan: ["clearInterval()", "stopInterval()", "end()", "halt()"], jawaban: 0 },
+  { soal: "Peristiwa saat halaman selesai dimuat?", pilihan: ["load", "ready", "start", "init"], jawaban: 0 },
+  { soal: "Cara menambahkan gaya CSS lewat JS?", pilihan: ["element.style.properti", "element.css()", "element.setStyle()", "style()"], jawaban: 0 },
+
+  // Tambahan Lanjutan
+  { soal: "Apa kepanjangan DOM?", pilihan: ["Document Object Model", "Data Object Method", "Document Output Module", "Display Object Model"], jawaban: 0 },
+  { soal: "Apa fungsi DOM?", pilihan: ["Menghubungkan JS dengan HTML", "Mengatur server", "Menyimpan data", "Membuat animasi"], jawaban: 0 },
+  { soal: "Metode untuk mencari elemen dengan selektor CSS?", pilihan: ["querySelector()", "getElement()", "find()", "search()"], jawaban: 0 },
+  { soal: "Cara menambahkan elemen baru ke halaman?", pilihan: ["createElement() + appendChild()", "addElement()", "insert()", "newTag()"], jawaban: 0 },
+  { soal: "Cara menghapus elemen dari halaman?", pilihan: ["remove()", "delete()", "clear()", "erase()"], jawaban: 0 },
+  { soal: "Tipe data apa yang tidak memiliki nilai?", pilihan: ["null", "undefined", "kosong", "nol"], jawaban: 0 },
+  { soal: "Apa nilai variabel yang belum diberi isi?", pilihan: ["undefined", "null", "empty", "NaN"], jawaban: 0 },
+  { soal: "Apa kepanjangan NaN?", pilihan: ["Not a Number", "Negative and Null", "No Assigned Name", "New Array Node"], jawaban: 0 },
+  { soal: "Metode untuk memeriksa tipe data suatu nilai?", pilihan: ["typeof", "type", "getType", "checkType"], jawaban: 0 },
+  { soal: "Cara mengubah teks menjadi huruf besar semua?", pilihan: ["toUpperCase()", "upperCase()", "big()", "capital()"], jawaban: 0 },
+  { soal: "Cara mengubah teks menjadi huruf kecil semua?", pilihan: ["toLowerCase()", "lowerCase()", "small()", "tiny()"], jawaban: 0 },
+  { soal: "Metode untuk memotong sebagian teks?", pilihan: ["slice()", "cut()", "trim()", "split()"], jawaban: 0 },
+  { soal: "Metode untuk menghapus spasi di awal dan akhir teks?", pilihan: ["trim()", "strip()", "clean()", "clear()"], jawaban: 0 },
+  { soal: "Apa itu API?", pilihan: ["Antarmuka untuk menghubungkan program", "Bahasa pemrograman", "Jenis server", "Basis data"], jawaban: 0 },
+  { soal: "Apa fungsi JSON?", pilihan: ["Format pertukaran data ringan", "Bahasa pemrograman", "Jenis variabel", "Metode penyimpanan"], jawaban: 0 }
+];
+
+// --------------------------
+// PENGATURAN SISTEM
+// --------------------------
+const JUMLAH_SOAL_TAMPIL = 15;   // Ambil 15 soal acak
+const NAIK_PER_SOAL = 100 / JUMLAH_SOAL_TAMPIL; // +6,67% per benar
+const TURUN_SALAH = 2;           // -2% per salah
+
+let soalTerpilih = [];
+let progres = 0;
+let nomorSoal = 0;
+
+// --------------------------
+// FUNGSI ACAK SOAL
+// --------------------------
+function acakSoal() {
+  const salin = [...daftarSoal];
+  const hasil = [];
+  for (let i = 0; i < JUMLAH_SOAL_TAMPIL; i++) {
+    const posisi = Math.floor(Math.random() * salin.length);
+    hasil.push(salin.splice(posisi, 1)[0]);
+  }
+  return hasil;
+}
+
+// --------------------------
+// TAMPILKAN SOAL
+// --------------------------
+function tampilkanSoal() {
+  if (nomorSoal >= soalTerpilih.length) {
+    tampilkanHasil();
+    return;
+  }
+
+  const soal = soalTerpilih[nomorSoal];
+  document.getElementById("teksSoal").textContent = `${nomorSoal + 1}. ${soal.soal}`;
+
+  const wadah = document.getElementById("daftarPilihan");
+  wadah.innerHTML = "";
+
+  soal.pilihan.forEach((opsi, indeks) => {
+    const tombol = document.createElement("button");
+    tombol.className = "tombol-pilih";
+    tombol.textContent = opsi;
+    tombol.onclick = () => cekJawaban(indeks);
+    wadah.appendChild(tombol);
+  });
+}
+
+// --------------------------
+// CEK JAWABAN
+// --------------------------
+function cekJawaban(pilihanPengguna) {
+  const soal = soalTerpilih[nomorSoal];
+  const semuaTombol = document.querySelectorAll(".tombol-pilih");
+  semuaTombol.forEach(btn => btn.disabled = true);
+
+  if (pilihanPengguna === soal.jawaban) {
+    semuaTombol[pilihanPengguna].classList.add("benar");
+    progres = Math.min(progres + NAIK_PER_SOAL, 100);
+  } else {
+    semuaTombol[pilihanPengguna].classList.add("salah");
+    semuaTombol[soal.jawaban].classList.add("benar");
+    progres = Math.max(progres - TURUN_SALAH, 0);
+  }
+
+  perbaruiProgres();
+
+  setTimeout(() => {
+    nomorSoal++;
+    tampilkanSoal();
+  }, 1000);
+}
+
+// --------------------------
+// PERBARUI TAMPILAN PROGRES
+// --------------------------
+function perbaruiProgres() {
+  document.getElementById("progresBar").style.width = `${progres.toFixed(1)}%`;
+  document.getElementById("progresTeks").textContent = `${progres.toFixed(1)}%`;
+}
+
+// --------------------------
+// TAMPILKAN HASIL AKHIR
+// --------------------------
+function tampilkanHasil() {
+  document.getElementById("kotakSoal").style.display = "none";
+  document.getElementById("hasilAkhir").style.display = "block";
+  document.getElementById("nilaiAkhir").textContent = `${progres.toFixed(1)}%`;
+
+  if (progres >= 90) document.getElementById("pesanHasil").textContent = "Sempurna! Siap buat kode 🔥";
+  else if (progres >= 75) document.getElementById("pesanHasil").textContent = "Bagus! Paham dasar-dasarnya 👍";
+  else if (progres >= 50) document.getElementById("pesanHasil").textContent = "Cukup baik, latihan lagi ya 😊";
+  else document.getElementById("pesanHasil").textContent = "Semangat! Pelajari lagi materinya 💪";
+}
+
+// --------------------------
+// MULAI / ULANG KUIS
+// --------------------------
+function mulaiUlang() {
+  soalTerpilih = acakSoal();
+  progres = 0;
+  nomorSoal = 0;
+  document.getElementById("kotakSoal").style.display = "block";
+  document.getElementById("hasilAkhir").style.display = "none";
+  perbaruiProgres();
+  tampilkanSoal();
+}
+
+// Jalankan saat halaman dibuka
+mulaiUlang();
+</script>
+
+</body>
+</html>

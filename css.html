@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi CSS | Voxz Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: #121218;
+            color: #E2E8F0;
+            line-height: 1.8;
+            padding: 20px 16px;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .kembali {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: #60A5FA;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .kembali:hover {
+            text-decoration: underline;
+            color: #93C5FD;
+        }
+
+        .card {
+            background: #1A1E27;
+            border: 1px solid #2A2F3A;
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #FFFFFF;
+            font-size: 28px;
+            margin-bottom: 16px;
+            text-align: center;
+            border-bottom: 1px solid #2A2F3A;
+            padding-bottom: 12px;
+        }
+
+        h2 {
+            color: #93C5FD;
+            font-size: 22px;
+            margin: 28px 0 16px;
+            padding-left: 10px;
+            border-left: 3px solid #3B82F6;
+        }
+
+        h3 {
+            color: #A5B4FC;
+            font-size: 18px;
+            margin: 20px 0 12px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            text-align: justify;
+            color: #CBD5E1;
+        }
+
+        .kode {
+            background-color: #1E222C;
+            border: 1px solid #333946;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 14px;
+            color: #94E2D5;
+            overflow-x: auto;
+        }
+
+        .catatan {
+            background-color: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid #3B82F6;
+            padding: 14px;
+            margin: 16px 0;
+            border-radius: 0 6px 6px 0;
+            color: #BFDBFE;
+        }
+
+        ul, ol {
+            margin: 16px 0 16px 28px;
+            color: #CBD5E1;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            color: #FCD34D;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="kembali">← Kembali ke Menu Utama</a>
+
+    <div class="card">
+        <h1>🎨 PEMBELAJARAN LENGKAP CSS</h1>
+
+        <h2>Apa Itu CSS?</h2>
+        <p>
+            CSS adalah singkatan dari <span class="highlight">Cascading Style Sheets</span>. Ini adalah bahasa yang digunakan untuk mengatur tampilan, desain, dan tata letak halaman web yang sudah dibuat dengan HTML. Jika HTML berfungsi sebagai "kerangka" atau struktur bangunan, maka CSS berperan sebagai "cat, warna, bentuk, dan tata ruang" yang membuat bangunan terlihat menarik dan rapi.
+        </p>
+        <p>
+            Tanpa CSS, halaman web hanya akan terlihat sebagai teks biasa dengan tulisan hitam di atas latar putih, tanpa warna, tata letak, atau efek apapun. Dengan CSS, kamu bisa mengatur hampir semua aspek tampilan: warna, ukuran huruf, jarak antar elemen, posisi, bentuk sudut, bayangan, animasi, dan banyak lagi.
+        </p>
+
+        <h2>Sejarah Singkat CSS</h2>
+        <p>
+            CSS pertama kali diusulkan pada tahun 1994 oleh Håkon Wium Lie untuk mengatasi masalah pengaturan tampilan yang rumit saat itu. Sebelum ada CSS, pengaturan tampilan harus ditulis langsung di dalam kode HTML, sehingga kode menjadi panjang, berantakan, dan sulit diubah.
+        </p>
+        <ul>
+            <li><strong>CSS 1:</strong> Dirilis tahun 1996, mendukung pengaturan warna, huruf, jarak, dan perataan teks.</li>
+            <li><strong>CSS 2:</strong> Keluar tahun 1998, menambahkan fitur tata letak, posisi elemen, dan media cetak.</li>
+            <li><strong>CSS 2.1:</strong> Menjadi standar yang paling stabil dan banyak dipakai selama bertahun-tahun.</li>
+            <li><strong>CSS 3:</strong> Versi terbaru yang dikembangkan secara bertahap, mendukung efek bayangan, sudut lengkung, gradasi warna, animasi, tata letak fleksibel, dan kompatibilitas untuk perangkat seluler.</li>
+        </ul>
+
+        <h2>Cara Menyisipkan CSS ke HTML</h2>
+        <p>Ada 3 cara utama untuk menghubungkan kode CSS dengan dokumen HTML:</p>
+
+        <h3>1. CSS Inline</h3>
+        <p>Ditulis langsung di dalam tag HTML menggunakan atribut <code>style</code>. Cara ini hanya memengaruhi satu elemen saja.</p>
+        <div class="kode">
+&lt;p style="color: blue; font-size: 18px;"&gt;Teks ini berwarna biru dan ukurannya 18 piksel&lt;/p&gt;
+        </div>
+
+        <h3>2. CSS Internal</h3>
+        <p>Ditulis di dalam bagian <code>&lt;head&gt;</code> menggunakan tag <code>&lt;style&gt;</code>. Berlaku untuk seluruh elemen dalam satu halaman saja.</p>
+        <div class="kode">
+&lt;head&gt;<br>
+&nbsp;&nbsp;&lt;style&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;p {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: #333;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line-height: 1.6;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&lt;/style&gt;<br>
+&lt;/head&gt;
+        </div>
+
+        <h3>3. CSS Eksternal</h3>
+        <p>Ditulis di berkas terpisah dengan ekstensi <code>.css</code>, lalu dipanggil di dalam HTML. Cara ini paling disarankan karena bisa dipakai di banyak halaman sekaligus dan kode menjadi lebih rapi.</p>
+        <p>Di dalam HTML:</p>
+        <div class="kode">
+&lt;head&gt;<br>
+&nbsp;&nbsp;&lt;link rel="stylesheet" href="gaya.css"&gt;<br>
+&lt;/head&gt;
+        </div>
+        <p>Di dalam berkas <code>gaya.css</code>:</p>
+        <div class="kode">
+body {<br>
+&nbsp;&nbsp;background-color: #f0f0f0;<br>
+&nbsp;&nbsp;font-family: Arial, sans-serif;<br>
+}<br>
+<br>
+h1 {<br>
+&nbsp;&nbsp;color: #2c3e50;<br>
+&nbsp;&nbsp;text-align: center;<br>
+}
+        </div>
+
+        <h2>Sintaks Dasar CSS</h2>
+        <p>Setiap aturan CSS memiliki pola penulisan yang tetap:</p>
+        <div class="kode">
+selektor {<br>
+&nbsp;&nbsp;properti: nilai;<br>
+&nbsp;&nbsp;properti_lain: nilai_lain;<br>
+}
+        </div>
+        <ul>
+            <li><strong>Selektor:</strong> Menentukan elemen mana yang akan diubah tampilannya.</li>
+            <li><strong>Properti:</strong> Jenis pengaturan yang ingin diterapkan (misal: warna, ukuran, jarak).</li>
+            <li><strong>Nilai:</strong> Pengaturan spesifik yang diberikan pada properti tersebut.</li>
+            <li><strong>Titik koma (;):</strong> Menandai akhir dari satu baris perintah.</li>
+        </ul>
+
+        <h2>Jenis-Jenis Selektor CSS</h2>
+        <p>Selektor adalah kunci untuk memilih elemen yang akan diatur. Berikut yang paling sering dipakai:</p>
+
+        <h3>🔹 Selektor Elemen</h3>
+        <p>Memilih semua elemen dengan nama tag yang sama.</p>
+        <div class="kode">
+p {<br>
+&nbsp;&nbsp;color: #333;<br>
+}
+        </div>
+
+        <h3>🔹 Selektor Kelas</h3>
+        <p>Memilih elemen berdasarkan atribut <code>class</code>. Ditandai dengan tanda titik (<code>.</code>). Bisa dipakai berulang kali.</p>
+        <div class="kode">
+/* Di CSS */<br>
+.kotak {<br>
+&nbsp;&nbsp;background: #ecf0f1;<br>
+&nbsp;&nbsp;padding: 15px;<br>
+}<br>
+<br>
+/* Di HTML */<br>
+&lt;div class="kotak"&gt;Isi kotak&lt;/div&gt;
+        </div>
+
+        <h3>🔹 Selektor ID</h3>
+        <p>Memilih elemen berdasarkan atribut <code>id</code>. Ditandai dengan tanda pagar (<code>#</code>). Hanya boleh dipakai satu kali per halaman.</p>
+        <div class="kode">
+/* Di CSS */<br>
+#judul-utama {<br>
+&nbsp;&nbsp;font-size: 26px;<br>
+&nbsp;&nbsp;color: #2980b9;<br>
+}<br>
+<br>
+/* Di HTML */<br>
+&lt;h1 id="judul-utama"&gt;Judul Halaman&lt;/h1&gt;
+        </div>
+
+        <h3>🔹 Selektor Universal</h3>
+        <p>Menerapkan aturan ke semua elemen di halaman. Ditandai dengan tanda bintang (<code>*</code>).</p>
+        <div class="kode">
+* {<br>
+&nbsp;&nbsp;margin: 0;<br>
+&nbsp;&nbsp;padding: 0;<br>
+&nbsp;&nbsp;box-sizing: border-box;<br>
+}
+        </div>
+
+        <h2>Properti CSS yang Sering Digunakan</h2>
+
+        <h3>🔹 Mengatur Teks dan Huruf</h3>
+        <ul>
+            <li><code>color</code> → Mengatur warna teks.</li>
+            <li><code>font-family</code> → Menentukan jenis huruf.</li>
+            <li><code>font-size</code> → Mengatur ukuran huruf.</li>
+            <li><code>font-weight</code> → Mengatur ketebalan huruf.</li>
+            <li><code>text-align</code> → Meratakan teks (kiri, tengah, kanan, rata).</li>
+            <li><code>text-decoration</code> → Memberi garis bawah, atas, atau mencoret teks.</li>
+            <li><code>line-height</code> → Mengatur jarak antar baris teks.</li>
+            <li><code>letter-spacing</code> → Mengatur jarak antar huruf.</li>
+        </ul>
+
+        <h3>🔹 Mengatur Warna dan Latar</h3>
+        <ul>
+            <li><code>background-color</code> → Warna latar belakang elemen.</li>
+            <li><code>background-image</code> → Menampilkan gambar sebagai latar.</li>
+            <li><code>background-repeat</code> → Mengatur apakah gambar diulang atau tidak.</li>
+            <li><code>background-size</code> → Mengatur ukuran gambar latar.</li>
+            <li><code>opacity</code> → Mengatur tingkat transparansi elemen (nilai 0 sampai 1).</li>
+        </ul>
+
+        <h3>🔹 Mengatur Ukuran dan Jarak</h3>
+        <p>Setiap elemen memiliki ruang di luar dan di dalamnya, dikenal sebagai model kotak:</p>
+        <ul>
+            <li><code>width</code> → Lebar elemen.</li>
+            <li><code>height</code> → Tinggi elemen.</li>
+            <li><code>margin</code> → Jarak di luar batas elemen.</li>
+            <li><code>padding</code> → Jarak di dalam batas elemen.</li>
+            <li><code>border</code> → Garis tepi yang membatasi elemen.</li>
+            <li><code>border-radius</code> → Membuat sudut elemen menjadi melengkung.</li>
+        </ul>
+
+        <h3>🔹 Mengatur Posisi dan Tata Letak</h3>
+        <ul>
+            <li><code>position</code> → Mengatur cara penempatan elemen: <code>static</code>, <code>relative</code>, <code>absolute</code>, <code>fixed</code>, <code>sticky</code>.</li>
+            <li><code>display</code> → Mengatur cara elemen ditampilkan: <code>block</code>, <code>inline</code>, <code>inline-block</code>, <code>flex</code>, <code>grid</code>.</li>
+            <li><code>float</code> → Mengatur posisi elemen mengapung ke kiri atau kanan.</li>
+            <li><code>z-index</code> → Mengatur urutan tumpukan elemen (mana yang terlihat di atas).</li>
+        </ul>
+
+        <h3>🔹 Efek Tambahan</h3>
+        <ul>
+            <li><code>box-shadow</code> → Memberikan bayangan pada elemen.</li>
+            <li><code>text-shadow</code> → Memberikan bayangan pada teks.</li>
+            <li><code>transition</code> → Membuat perubahan tampilan menjadi halus dan bertahap.</li>
+            <li><code>transform</code> → Memutar, memperbesar, memperkecil, atau memiringkan elemen.</li>
+        </ul>
+
+        <h2>Satuan Ukuran dalam CSS</h2>
+        <p>CSS memiliki beberapa jenis satuan ukuran, dibagi menjadi dua kelompok:</p>
+
+        <h3>✅ Satuan Mutlak</h3>
+        <p>Ukuran tetap yang tidak berubah mengikuti kondisi layar:</p>
+        <ul>
+            <li><code>px</code> → Piksel, paling sering dipakai.</li>
+            <li><code>cm</code> → Sentimeter.</li>
+            <li><code>mm</code> → Milimeter.</li>
+            <li><code>in</code> → Inci.</li>
+        </ul>
+
+        <h3>✅ Satuan Relatif</h3>
+        <p>Ukuran yang mengikuti ukuran elemen induk atau layar, sangat disarankan untuk desain yang bisa menyesuaikan perangkat:</p>
+        <ul>
+            <li><code>%</code> → Persen, mengikuti ukuran elemen induk.</li>
+            <li><code>em</code> → Mengikuti ukuran huruf elemen induk.</li>
+            <li><code>rem</code> → Mengikuti ukuran huruf dasar halaman.</li>
+            <li><code>vw</code> → Persen dari lebar jendela layar.</li>
+            <li><code>vh</code> → Persen dari tinggi jendela layar.</li>
+        </ul>
+
+        <div class="catatan">
+            <strong>💡 Catatan Penting:</strong> CSS bekerja dengan aturan "mengalir dan menumpuk". Jika ada lebih dari satu aturan yang memengaruhi elemen yang sama, aturan yang paling spesifik atau yang ditulis paling akhir akan berlaku. Ini disebut prinsip <em>Cascading</em>.
+        </div>
+
+        <h2>Kesimpulan</h2>
+        <p>
+            Menguasai CSS adalah langkah kedua yang sangat penting setelah memahami HTML. Dengan CSS, kamu bisa mengubah tampilan halaman sederhana menjadi desain yang menarik, rapi, dan nyaman dilihat. Kuncinya adalah sering mencoba, mengubah nilai-nilai yang ada, dan melihat hasilnya langsung di browser. Semakin sering dipraktikkan, semakin cepat kamu menguasai cara mengatur tampilan sesuai keinginan.
+        </p>
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+  body {
+  background-color: rgba(18, 18, 24, 1);
+  margin: 0;
+  padding: 20px 16px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* 👉 Gaya Judul Pemisah */
+.judul-bagian {
+  width: 100%;
+  max-width: 450px;
+  margin: 24px auto 10px auto;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(176, 184, 196, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding-left: 8px;
+}
+
+/* Tombol / Link */
+a.button {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 450px;
+  min-height: 65px;
+  padding: 14px 18px;
+  margin: 0 auto 10px auto;
+  background: rgba(26, 30, 39, 1);
+  border: 1px solid rgba(42, 47, 58, 1);
+  border-radius: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+a.button:hover {
+  background: rgba(34, 39, 49, 1);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+a.button:active {
+  background: rgba(22, 26, 34, 1);
+  transform: scale(0.98);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Penanda Warna Samping */
+a.button.latihan {
+  border-left: 3px solid rgba(16, 185, 129, 1);
+}
+
+a.button.tanya {
+  border-left: 3px solid rgba(59, 130, 246, 1);
+}
+
+a.button.care {
+  border-left: 3px solid rgba(245, 158, 11, 1);
+}
+
+/* === BAGIAN JUDUL UTAMA === */
+.hero {
+  max-width: 450px;
+  margin: 0 auto 32px auto;
+  text-align: center;
+  padding: 24px 16px;
+}
+
+.label-atas {
+  display: inline-block;
+  font-size: 12px;
+  color: #b4aaff;
+  background: rgba(100, 80, 220, 0.15);
+  border: 1px solid rgba(120, 100, 240, 0.3);
+  border-radius: 20px;
+  padding: 6px 14px;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.judul-utama {
+  font-size: 32px;
+  font-weight: bold;
+  color: #f0f4ff;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.judul-utama span {
+  background: linear-gradient(90deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.deskripsi {
+  font-size: 15px;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+/* === TOMBOL DONASI === */
+a.button.donasi {
+  border-left: 3px solid rgba(236, 201, 75, 1);
+}
+
+/* === TOMBOL BAGIAN BANTUAN === */
+a.button.faq {
+  border-left: 3px solid rgba(14, 165, 233, 1); /* Biru langit */
+}
+a.button.panduan {
+  border-left: 3px solid rgba(234, 179, 8, 1); /* Kuning */
+}
+

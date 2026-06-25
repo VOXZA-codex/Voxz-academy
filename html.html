@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi HTML || Voxz Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: #121218;
+            color: #E2E8F0;
+            line-height: 1.8;
+            padding: 20px 16px;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .kembali {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: #60A5FA;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .kembali:hover {
+            text-decoration: underline;
+            color: #93C5FD;
+        }
+
+        .card {
+            background: #1A1E27;
+            border: 1px solid #2A2F3A;
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #FFFFFF;
+            font-size: 28px;
+            margin-bottom: 16px;
+            text-align: center;
+            border-bottom: 1px solid #2A2F3A;
+            padding-bottom: 12px;
+        }
+
+        h2 {
+            color: #93C5FD;
+            font-size: 22px;
+            margin: 28px 0 16px;
+            padding-left: 10px;
+            border-left: 3px solid #3B82F6;
+        }
+
+        h3 {
+            color: #A5B4FC;
+            font-size: 18px;
+            margin: 20px 0 12px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            text-align: justify;
+            color: #CBD5E1;
+        }
+
+        .kode {
+            background-color: #1E222C;
+            border: 1px solid #333946;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 14px;
+            color: #94E2D5;
+            overflow-x: auto;
+        }
+
+        .catatan {
+            background-color: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid #3B82F6;
+            padding: 14px;
+            margin: 16px 0;
+            border-radius: 0 6px 6px 0;
+            color: #BFDBFE;
+        }
+
+        ul, ol {
+            margin: 16px 0 16px 28px;
+            color: #CBD5E1;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            color: #FCD34D;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="kembali">← Kembali ke Menu Utama</a>
+
+    <div class="card">
+        <h1>📘 PEMBELAJARAN LENGKAP HTML</h1>
+
+        <h2>Apa Itu HTML?</h2>
+        <p>
+            HTML adalah singkatan dari <span class="highlight">HyperText Markup Language</span>. Ini adalah bahasa standar yang digunakan untuk membuat struktur dan kerangka dasar sebuah halaman situs web. HTML bukanlah bahasa pemrograman, melainkan bahasa penanda yang berfungsi mengatur bagaimana teks, gambar, tautan, tabel, dan elemen lain ditampilkan di peramban (browser).
+        </p>
+        <p>
+            Setiap halaman web yang kamu buka di internet pasti dibangun menggunakan HTML sebagai dasarnya. HTML bekerja dengan cara memberikan "tanda" atau penanda pada konten agar browser mengerti apakah itu judul, paragraf, gambar, atau bagian lainnya.
+        </p>
+
+        <h2>Sejarah Singkat HTML</h2>
+        <p>
+            HTML pertama kali dikembangkan oleh Tim Berners-Lee pada tahun 1991. Seiring perkembangan teknologi internet, HTML terus mengalami pembaruan:
+        </p>
+        <ul>
+            <li><strong>HTML 1.0:</strong> Versi pertama yang sangat sederhana.</li>
+            <li><strong>HTML 2.0:</strong> Menjadi standar resmi pada tahun 1995.</li>
+            <li><strong>HTML 4.01:</strong> Versi yang banyak digunakan selama bertahun-tahun.</li>
+            <li><strong>HTML5:</strong> Versi terbaru dan paling modern yang dirilis secara resmi pada tahun 2014. Versi ini mendukung fitur multimedia, grafis, dan struktur yang lebih baik tanpa memerlukan plugin tambahan.</li>
+        </ul>
+
+        <h2>Struktur Dasar Dokumen HTML</h2>
+        <p>
+            Setiap berkas HTML memiliki struktur dasar yang wajib ada agar bisa dibaca dengan benar oleh browser. Berikut bentuk strukturnya:
+        </p>
+        <div class="kode">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html lang="id"&gt;<br>
+<br>
+&lt;head&gt;<br>
+&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>
+&nbsp;&nbsp;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br>
+&nbsp;&nbsp;&lt;title&gt;Judul Halaman&lt;/title&gt;<br>
+&lt;/head&gt;<br>
+<br>
+&lt;body&gt;<br>
+&nbsp;&nbsp;&lt;!-- Semua konten terlihat ada di sini --&gt;<br>
+&lt;/body&gt;<br>
+<br>
+&lt;/html&gt;
+        </div>
+
+        <h3>Penjelasan Setiap Bagian:</h3>
+        <ul>
+            <li><span class="highlight">&lt;!DOCTYPE html&gt;</span>: Memberitahu browser bahwa dokumen ini menggunakan standar HTML5.</li>
+            <li><span class="highlight">&lt;html&gt;</span>: Tag induk yang membungkus seluruh isi dokumen HTML.</li>
+            <li><span class="highlight">&lt;head&gt;</span>: Bagian yang berisi informasi pengaturan halaman, seperti judul, pengkodean karakter, dan tautan ke berkas lain.</li>
+            <li><span class="highlight">&lt;title&gt;</span>: Menentukan teks yang muncul di bilah judul jendela browser.</li>
+            <li><span class="highlight">&lt;body&gt;</span>: Tempat semua konten yang akan terlihat oleh pengunjung diletakkan, seperti teks, gambar, tombol, dan tabel.</li>
+        </ul>
+
+        <h2>Mengenal Tag, Elemen, dan Atribut</h2>
+        <p>
+            Dalam menulis kode HTML, ada 3 istilah utama yang perlu dipahami:
+        </p>
+
+        <h3>1. Tag</h3>
+        <p>
+            Tag adalah penanda awal dan akhir dari sebuah elemen. Biasanya ditulis dengan tanda kurung siku <code>&lt; &gt;</code>. Kebanyakan tag memiliki pasangan, yaitu tag pembuka dan tag penutup yang diberi tanda garis miring <code>/</code>.
+        </p>
+        <p>Contoh: <code>&lt;p&gt;</code> (pembuka) dan <code>&lt;/p&gt;</code> (penutup)</p>
+
+        <h3>2. Elemen</h3>
+        <p>
+            Elemen adalah keseluruhan bagian dari tag pembuka, isi konten, hingga tag penutupnya.
+        </p>
+        <div class="kode">
+&lt;p&gt;Ini adalah sebuah paragraf dalam elemen HTML&lt;/p&gt;
+        </div>
+
+        <h3>3. Atribut</h3>
+        <p>
+            Atribut adalah informasi tambahan yang diberikan pada sebuah elemen untuk mengatur sifat atau perilakunya. Atribut ditulis di dalam tag pembuka dan memiliki format <code>nama="nilai"</code>.
+        </p>
+        <div class="kode">
+&lt;a href="halaman.html" target="_blank"&gt;Klik di sini&lt;/a&gt;
+        </div>
+        <p>Pada contoh di atas, <code>href</code> dan <code>target</code> adalah atribut.</p>
+
+        <h2>Tag-tag Umum yang Sering Digunakan</h2>
+
+        <h3>🔹 Tag Judul</h3>
+        <p>HTML menyediakan 6 tingkat judul, dari yang paling besar hingga paling kecil:</p>
+        <div class="kode">
+&lt;h1&gt;Judul Utama&lt;/h1&gt;<br>
+&lt;h2&gt;Judul Bagian&lt;/h2&gt;<br>
+&lt;h3&gt;Sub Judul&lt;/h3&gt;<br>
+&lt;h4&gt;Judul Kecil&lt;/h4&gt;<br>
+&lt;h5&gt;Judul Lebih Kecil&lt;/h5&gt;<br>
+&lt;h6&gt;Judul Paling Kecil&lt;/h6&gt;
+        </div>
+
+        <h3>🔹 Tag Teks dan Paragraf</h3>
+        <ul>
+            <li><code>&lt;p&gt;</code> → Membuat paragraf teks baru.</li>
+            <li><code>&lt;b&gt;</code> atau <code>&lt;strong&gt;</code> → Membuat teks tebal.</li>
+            <li><code>&lt;i&gt;</code> atau <code>&lt;em&gt;</code> → Membuat teks miring.</li>
+            <li><code>&lt;u&gt;</code> → Memberi garis bawah pada teks.</li>
+            <li><code>&lt;br&gt;</code> → Memindahkan teks ke baris baru (tag tunggal, tidak perlu penutup).</li>
+            <li><code>&lt;hr&gt;</code> → Membuat garis pemisah antar bagian konten.</li>
+        </ul>
+
+        <h3>🔹 Tag Gambar dan Tautan</h3>
+        <p>Untuk menampilkan gambar:</p>
+        <div class="kode">
+&lt;img src="nama-gambar.jpg" alt="Keterangan gambar" width="300"&gt;
+        </div>
+        <p>Untuk membuat tautan ke halaman lain:</p>
+        <div class="kode">
+&lt;a href="https://voxz.my.id" target="_blank"&gt;Kunjungi Situs Saya&lt;/a&gt;
+        </div>
+
+        <h3>🔹 Tag Daftar</h3>
+        <p>Daftar tidak berurutan (menggunakan titik):</p>
+        <div class="kode">
+&lt;ul&gt;<br>
+&nbsp;&nbsp;&lt;li&gt;Item Pertama&lt;/li&gt;<br>
+&nbsp;&nbsp;&lt;li&gt;Item Kedua&lt;/li&gt;<br>
+&lt;/ul&gt;
+        </div>
+        <p>Daftar berurutan (menggunakan nomor):</p>
+        <div class="kode">
+&lt;ol&gt;<br>
+&nbsp;&nbsp;&lt;li&gt;Langkah Satu&lt;/li&gt;<br>
+&nbsp;&nbsp;&lt;li&gt;Langkah Dua&lt;/li&gt;<br>
+&lt;/ol&gt;
+        </div>
+
+        <h2>HTML5: Fitur dan Keunggulan</h2>
+        <p>
+            HTML5 membawa banyak perubahan dan kemudahan dibanding versi sebelumnya. Beberapa keunggulannya antara lain:
+        </p>
+        <ul>
+            <li><strong>Struktur Lebih Jelas:</strong> Memiliki tag khusus seperti <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, dan <code>&lt;footer&gt;</code> untuk memudahkan pembagian bagian halaman.</li>
+            <li><strong>Dukungan Multimedia:</strong> Bisa langsung menampilkan video dan audio tanpa bantuan program tambahan menggunakan tag <code>&lt;video&gt;</code> dan <code>&lt;audio&gt;</code>.</li>
+            <li><strong>Grafis Interaktif:</strong> Memiliki elemen <code>&lt;canvas&gt;</code> dan <code>&lt;svg&gt;</code> untuk membuat gambar dan animasi langsung di halaman.</li>
+            <li><strong>Kompatibilitas Tinggi:</strong> Berjalan lancar di berbagai jenis perangkat, mulai dari komputer, tablet, hingga ponsel pintar.</li>
+        </ul>
+
+        <div class="catatan">
+            <strong>💡 Catatan Penting:</strong> Ingatlah bahwa HTML hanya mengatur struktur. Untuk mengatur tampilan seperti warna, ukuran, tata letak, dan gaya desain, kamu akan menggunakan CSS. Sedangkan untuk membuat halaman bisa berinteraksi dan bergerak, kamu akan mempelajari JavaScript. Ketiganya bekerja sama untuk membuat situs web yang bagus dan fungsional.
+        </div>
+
+        <h2>Kesimpulan</h2>
+        <p>
+            Menguasai HTML adalah langkah pertama dan paling mendasar bagi siapa saja yang ingin belajar membuat situs web. Semakin kamu memahami cara kerja tag, elemen, dan strukturnya, semakin mudah pula nanti saat mempelajari materi selanjutnya. Latihanlah dengan menulis kode secara langsung, karena cara terbaik menguasai HTML adalah dengan terus mempraktikkannya.
+        </p>
+
+    </div>
+</div>
+
+</body>
+</html>
